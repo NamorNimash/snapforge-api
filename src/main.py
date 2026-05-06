@@ -17,10 +17,10 @@ MAX_CONCURRENT = int(os.getenv("MAX_CONCURRENT", "2"))
 RENDER_TIMEOUT = int(os.getenv("RENDER_TIMEOUT", "30"))
 WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "")
 
-# Demo rate limiting: max 5 requests per minute per IP
-RATE_LIMIT_WINDOW = 60  # seconds
-RATE_LIMIT_MAX = 5      # requests per window
-rate_limits = {}        # ip -> [timestamps]
+# Demo rate limiting: max 5 requests per day per IP
+RATE_LIMIT_WINDOW = 86400  # seconds (24 hours)
+RATE_LIMIT_MAX = 5           # requests per window
+rate_limits = {}             # ip -> [timestamps]
 
 # Ensure storage exists
 STORAGE_PATH.mkdir(parents=True, exist_ok=True)
